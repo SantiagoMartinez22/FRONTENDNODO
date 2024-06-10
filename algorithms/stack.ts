@@ -1,6 +1,6 @@
-class StackNode {
+class StackNumberNode {
     data: number;
-    next: StackNode | null;
+    next: StackNumberNode | null;
 
     constructor(data: number) {
         this.data = data;
@@ -8,9 +8,9 @@ class StackNode {
     }
 }
 
-class Stack {
-    head: StackNode | null;
-    tail: StackNode | null;
+class NumberStack {
+    head: StackNumberNode | null;
+    tail: StackNumberNode | null;
     size: number;
 
     constructor() {
@@ -20,7 +20,7 @@ class Stack {
     }
 
     public push(data: number): void {
-        const stackNode: StackNode = new StackNode(data);
+        const stackNode: StackNumberNode = new StackNode(data);
         if (this.tail) {
             this.tail.next = stackNode;
             this.tail = stackNode;
@@ -44,7 +44,7 @@ class Stack {
             this.tail = null;
         } else {
             // Recorrer la lista hasta el penúltimo nodo
-            let node: StackNode = this.head;
+            let node: StackNumberNode = this.head;
             while (node.next !== this.tail) {
                 node = node.next!;
             }
@@ -58,7 +58,7 @@ class Stack {
     }
 }
 
-let stack: Stack = new Stack();
+let stack: NumberStack = new Stack();
 stack.push(2);
 stack.push(5);
 stack.push(3);
